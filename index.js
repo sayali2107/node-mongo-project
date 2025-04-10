@@ -3,11 +3,13 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const User = require('./models/User'); 
-// const product=require('./models/product')
+
+const productRoutes=require('./Routes/productRoutes')
 
 const server = express();
 server.use(cors());
 server.use(bodyParser.json());
+server.use('/Products',productRoutes)
 
 // Connect to MongoDB Atlas
 mongoose.connect('mongodb+srv://sayalids2107:Sayalids2107@sayali.yriwle5.mongodb.net/?retryWrites=true&w=majority&appName=Sayali', {

@@ -1,6 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const product = require('./models/product'); 
+const product = require('../models/Products'); 
 const router = express.Router();
 
 router.post('/add', async (req, res) => {
@@ -35,13 +34,13 @@ router.post('/add', async (req, res) => {
 
 router.get('/get', async (req, res) => {
     try {
-        const { productName } = req.query; 
-        const result = await product.findOne({ productName });
+       
+        const result = await product.find()
 
         res.json({
             status: true,
-            message: 'Product fetched successfully',
-            data: result
+            message:result,
+             
         });
     } catch (err) {
         res.json({
